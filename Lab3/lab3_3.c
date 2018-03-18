@@ -10,12 +10,8 @@
 
 #include <stdio.h>
 
-long long fibonacci(long long input) {
-   return fibonacci(input-1) + fibonacci(input-2);
-}
-
 int main(void) {
-   unsigned long long input, tmp, sum = 0;
+   unsigned long long input, tmp = 1, sum = 1, fib = 0;
 
    printf("Insert a number: ");
    scanf("%lld", &input);
@@ -23,8 +19,13 @@ int main(void) {
    if (input == 1 || input == 2) {
       printf("Fibonacci's sequence is: 1\n");
    } else {
-
-      printf("Fibonacci's sequence is: %lld\n", fibonacci(input));
+      while (input > 2) {
+         fib = (sum + tmp);
+         tmp = sum;
+         sum = fib;
+         input--;
+      }
+      printf("Fibonacci's sequence is: %lld\n", sum);
    }
 
    return 0;
