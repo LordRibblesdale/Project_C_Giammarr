@@ -29,9 +29,49 @@ int main() {
             printf(" ");
          }
          for (int j = 0; j < (i+1); j++) {
-            for (int k = j+1; k < i; k++) {
-               printf("*");
-            }
+            printf("*");
+         }
+         for (int j = 0; j < i; j++) {
+            printf("*");
+         }
+         printf("\n");
+      }
+      for (int i = 0; i < (x-1); i++) {
+         for (int j = 0; j < (i+1); j++) {
+            printf(" ");
+         }
+         for (int j = 0; j < (x-i-2); j++) {
+            printf("*");
+         }
+         for (int j = ((x-i)-3); j > 0; j--) {
+            printf("*");
+         }
+         printf("\n");
+      }
+      break;
+   }
+
+   while (x % 2 == 0) {
+      for (int i = 0; i < (x); i++) {
+         for (int j = i+1; j < x; j++) {
+            printf(" ");
+         }
+         for (int j = 0; j < (i+2); j++) {
+            printf("*");
+         }
+         for (int j = 0; j < i; j++) {
+            printf("*");
+         }
+         printf("\n");
+      }
+      for (int i = 0; i < (x-1); i++) {
+         for (int j = 0; j < i+1; j++) {
+            printf(" ");
+         }
+         for (int j = 0; j < (x-i); j++) {
+            printf("*");
+         }
+         for (int j = ((x-i)-2); j > 0; j--) {
             printf("*");
          }
          printf("\n");
