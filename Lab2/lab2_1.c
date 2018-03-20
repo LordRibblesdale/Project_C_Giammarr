@@ -5,13 +5,13 @@
 #include <stdio.h>
 
 int main() {
-   int input, i = 0;
+   int input;
    printf("Insert a number: ");
    scanf("%d", &input);
 
-   while (i < input) {
+   while (input > 0) {
       printf("*");
-      i++;
+      input--;
    }
 
    return 0;
