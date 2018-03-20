@@ -7,21 +7,24 @@
 */
 
 #include <stdio.h>
+#include <math.h>
 
 int main(void) {
-   double input, i = 1, tmp = 0;
+   long input, tmp1, tmp2, i = 0;
 
    do {
       printf("Insert number [xxxxxxx]: ");
-      scanf("%lf", &input);
+      scanf("%ld", &input);
    } while (input <= 1000000 || input >= 10000000);
 
-   while ((7^(int)(i)) < input) {
-      if ((int)(input) % (7^(int)(i)) == 0) {
-         tmp = i;
-      }
-      i++;
+   tmp2 = pow(7, i);
+   while (input > tmp2) {
+       printf("%ld\n", tmp2);
+       if (input % (long)(pow(7,i)) == 0) {
+           tmp1 = i;
+       }
+       tmp2 = pow(7, ++i);
    }
 
-   printf("Il numero inserito e' %f e la massima potenza di 7 che lo divide e' %f\n", input, tmp);
+   printf("Il numero inserito e' %ld e la massima potenza di 7 che lo divide e' %ld\n", input, tmp1);
 }
