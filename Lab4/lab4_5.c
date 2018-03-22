@@ -26,5 +26,5 @@ int main(void) {
        tmp2 = pow(7, ++i);
    }
 
-   printf("Il numero inserito e' %ld e la massima potenza di 7 che lo divide e' %ld\n", input, tmp1);
+   printf("Il numero inserito e' %ld e la massima potenza di 7 che lo divide e' %ld\n", input, (long)(pow(7, tmp1)));
 }
