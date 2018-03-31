@@ -15,20 +15,15 @@ int main(void) {
    float in1, in2;
    char c;
 
-   for (int i = 0; i < 2; i++) {
-      printf("Insert float%d", (i+1));
-      switch (i) {
-         case 1:
-            scanf("%f", &in1);
-            break;
-         case 2:
-            do {
-               scanf("%f", &in2);
-            } while (in2 == 0);
-            break;
-      }
-   }
+   printf("Insert float1 ");
+   scanf("%f", &in1);
 
+   printf("Insert float2 ");
+   do {
+      scanf("%f", &in2);
+   } while (in2 == 0);
+
+   getchar();
    printf("Insert char [+, -, *, /] ");
    scanf("%c", &c);
 
