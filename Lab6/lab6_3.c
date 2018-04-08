@@ -9,7 +9,7 @@
 
 bool isPrime(int value) {
    int count = 0;
-   for (int i = 2; i <= value / 2) {
+   for (int i = 2; i <= value / 2; i++) {
       if (value % i == 0) {
          count++;
       }
@@ -24,15 +24,17 @@ bool isPrime(int value) {
 
 int main(void) {
    bool isFound = false;
-   unsigned long i = 10000000;
+   unsigned long long i = 10000000;
 
    while(!isFound && i < 100000000) {
-      for (int j = 2; (i*j) < 100000000; j++) {
-         if ((i*j) % 11111111 == 0) {
-            printf("Esiste");
+      for (long j = 2; (i*j) < 1000000000; j++) {
+         if ((i*j) % 111111111 == 0) {
+            printf("\nEsiste\n");
             isFound = true;
          }
+         printf("%lld\n", (i*j));
       }
+      i++;
    }
 
    if (!isFound) {
