@@ -108,13 +108,6 @@ void scriviData(int day, int month, int year) {
          break;
       case 3:
          printf("%d Marzo %d", day, year);
-
-
-
-
-
-
-
          break;
       case 4:
          printf("%d Aprile %d", day, year);
