@@ -12,12 +12,12 @@
 int main(void) {
    int a, neg = 0, pos = 0, null = 0, par = 0, dis = 0, cop = 0;
 
-   for (int i = 0; i <= 1000; i++) {
+   for (int i = 0; i < 1000; i++) {
       a = (rand() % 200) - 100;
 
       if (a != abs(a)) {
          neg++;
-      } else (a == 0) {
+      } else if (a == 0) {
          null++;
       } else {
          pos++;
