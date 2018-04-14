@@ -11,49 +11,49 @@
 **/
 #include <stdio.h>
 #include <stdlib.h>
-#define SIZE = 30
+#include <time.h>
+#define SIZE 30
 
 int rndGen() {
    return rand() % 60 + 16;
 }
 
-int min(int* pa) {
-   int index = -1;
+int min(int *pa) {
+   int index = -1, m = 86;
    for (int i = 0; i < SIZE; i++) {
-      if (min > *(pa+i)) {
-         min = *(pa+i);
+      if (m > *(pa + i)) {
+         m = *(pa + i);
          index = i;
       }
    }
    return index;
 }
 
-int average(int* pa) {
+int average(int *pa) {
    int sum = 0;
    for (int i = 0; i < SIZE; i++) {
-      sum += *(pa+i);
+      sum += *(pa + i);
    }
    return sum/SIZE;
 }
 
-void seqNum(int* pa) {
+void seqNum(int *pa) {
    int index = -1;
    for (int i = 1; i < SIZE; i++) {
-      if (*(pa+i-1) == *(pa+i)) {
+      if (*(pa + i-1) == *(pa + i)) {
          printf("Sequence in index: %d\n", i-1);
          index = i-1;
       }
-
-      if (index != (i-1)) {
-         printf("No index found\n");
-      }
+   }
+   if (index == -1) {
+      printf("No index found\n");
    }
 }
 
-int difNum(int* pa) {
+int difNum(int *pa) {
    for (int i = 0; i < SIZE-1; i++) {
       for (int j = i+1; j < SIZE; j++) {
-         if (*(pa+i) == *(pa+j)) {
+         if (*(pa + i) == *(pa + j)) {
             return 0;
          }
       }
@@ -62,14 +62,24 @@ int difNum(int* pa) {
 }
 
 int max(int* pa, int* pmax) {
-   
+   int tmp = *pmax;
+   *pmax = 0;
+   for (int i = 0; i < SIZE; i++) {
+      if (*(pa + i) > *pmax && *(pa + i) != tmp) {
+         *pmax = *(pa + i);
+      }
+   }
+
+   return *pmax;
 }
 
 int main(void) {
    int a[SIZE];
-   int* pa0 = &a;
-   int max;
-   int* pmax = &max;
+   int m = 0, *pmax, *pa0;
+   pa0 = a;
+   pmax = &m;
+
+   srand(time(NULL));
 
    for (int i = 0; i < SIZE; i++) {
       a[i] = rndGen();
@@ -81,18 +91,14 @@ int main(void) {
       }
    }
 
-   printf("Average: %d\n", average(a));
-   printf("Min: %d\n", min(a));
-   seqNum(a);
-   if (difNum(a) == 1) {
+   printf("Min: %d\n", min(pa0));
+   printf("Average: %d\n", average(pa0));
+   seqNum(pa0);
+   if (difNum(pa0) == 1) {
       printf("All nums are different\n");
    } else {
       printf("There are same nums in the array\n");
    }
-
-   for (int i = 0; i < 2; i++) {
-      if (max == 0) {
-         printf("First max is: ")
-      }
-   }
+   printf("First Max: %d\n", max(pa0, pmax));
+   printf("Second Max: %d\n", max(pa0, pmax));
 }
