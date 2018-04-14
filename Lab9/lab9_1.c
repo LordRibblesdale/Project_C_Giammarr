@@ -13,30 +13,86 @@
 #include <stdlib.h>
 #define SIZE = 30
 
+int rndGen() {
+   return rand() % 60 + 16;
+}
+
+int min(int* pa) {
+   int index = -1;
+   for (int i = 0; i < SIZE; i++) {
+      if (min > *(pa+i)) {
+         min = *(pa+i);
+         index = i;
+      }
+   }
+   return index;
+}
+
+int average(int* pa) {
+   int sum = 0;
+   for (int i = 0; i < SIZE; i++) {
+      sum += *(pa+i);
+   }
+   return sum/SIZE;
+}
+
+void seqNum(int* pa) {
+   int index = -1;
+   for (int i = 1; i < SIZE; i++) {
+      if (*(pa+i-1) == *(pa+i)) {
+         printf("Sequence in index: %d\n", i-1);
+         index = i-1;
+      }
+
+      if (index != (i-1)) {
+         printf("No index found\n");
+      }
+   }
+}
+
+int difNum(int* pa) {
+   for (int i = 0; i < SIZE-1; i++) {
+      for (int j = i+1; j < SIZE; j++) {
+         if (*(pa+i) == *(pa+j)) {
+            return 0;
+         }
+      }
+   }
+   return 1;
+}
+
+int max(int* pa, int* pmax) {
+   
+}
+
 int main(void) {
    int a[SIZE];
-   int sum = 0, min = 86, index = -1;
+   int* pa0 = &a;
+   int max;
+   int* pmax = &max;
 
    for (int i = 0; i < SIZE; i++) {
-      a[i] = (rand() % 60 + 16);
+      a[i] = rndGen();
 
       printf("%2d ", a[i]);
 
       if ((i - 9) % 10 == 0) {
          printf("\n");
       }
+   }
 
-      sum += a[i];
+   printf("Average: %d\n", average(a));
+   printf("Min: %d\n", min(a));
+   seqNum(a);
+   if (difNum(a) == 1) {
+      printf("All nums are different\n");
+   } else {
+      printf("There are same nums in the array\n");
+   }
 
-      if (min > a[i]) {
-         min = a[i];
-         index = 1;
-      }
-
-      if (i != 0) {
-         if (a[i-1] == a[i]) {
-            printf("All'indice %d %d sono consecutivi", i, a[i]);
-         }
+   for (int i = 0; i < 2; i++) {
+      if (max == 0) {
+         printf("First max is: ")
       }
    }
 }
