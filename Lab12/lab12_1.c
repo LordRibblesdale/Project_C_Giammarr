@@ -39,45 +39,18 @@ void print(int a[SIZE][SIZE]) {
 void localMax(int a[SIZE][SIZE]) {
    bool isMax;
    for (int i = 0; i < SIZE; i++) {
-      isMax = true;
       for (int j = 0; j < SIZE; j++) {
-         if ((i-1) > -1 && isMax) {
-            if (a[i][j] > a[i-1][j]) {
-               isMax = (isMax && true);
+
+         if ((i-1) != -1 || (i+1) != SIZE || (j-1) != -1 || (j+1) != SIZE) {
+            if (a[i][j] > a[i-1][j] && a[i][j] > a[i+1][j] && a[i][j] > a[i][j-1] && a[i][j] > a[i][j+1]) {
+               isMax = true;
             } else {
-               isMax = (isMax && false);
+               isMax = false;
             }
          }
-
-         if ((i+1) < SIZE && isMax) {
-            if (a[i][j] > a[i+1][j]) {
-               isMax = (isMax && true);
-            } else {
-               isMax = (isMax && false);
-            }
-         }
-
-         if ((j-1) > -1 && isMax) {
-            if (a[i][j] > a[i][j-1]) {
-               isMax = (isMax && true);
-            } else {
-               isMax = (isMax && false);
-            }
-         }
-
-         if ((j+1) < SIZE && isMax) {
-            if (a[i][j] > a[i][j+1]) {
-               isMax = (isMax && true);
-            } else {
-               isMax = (isMax && false);
-            }
-         }
-
          if (isMax) {
             printf("%d is localMax @ %d %d\n", a[i][j], i, j);
          }
-
-         printf("%d %d / ", i, j);
       }
    }
 }
