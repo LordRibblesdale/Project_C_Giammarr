@@ -2,12 +2,13 @@
 //Not working correctly, need to be fixed
 
 void change(char s[]) {
-   char str[sizeof s / sizeof(char)];
+   char str[30];
    char c;
-   int i, j;
-   scanf("%c", c);
-   for (i = 0, j = 0; i < sizeof s / sizeof(char); i++) {
-      if (s[i] == c) {
+   int j = 0;
+   printf("Insert char: ");
+   scanf("%c", &c);
+   for (int i = 0; i < 30; i++) {
+      if (s[i] != c) {
          str[j] = s[i];
          j++;
       }
@@ -19,10 +20,7 @@ void change(char s[]) {
 }
 
 void changeC(char s[]) {
-   int z = sizeof s / sizeof(char);
-   printf("%d", z);
-
-   for (int i = 0; i < z; i++) {
+   for (int i = 0; i < 30; i++) {
       if (s[i] == 'a') {
          s[i] = 'e';
       }
@@ -32,15 +30,14 @@ void changeC(char s[]) {
 }
 
 int main() {
-   char stringa[10];
+   char string[30];
    int i;
 
-   printf("immissione con getchar\n");
+   printf("Insert here: ");
 
-   for (i = 0; ((stringa[i] = getchar()) != '\n') && i < 100; i++);
+   for (i = 0; ((string[i] = getchar()) != '\n') && i < 30; i++);
 
-   stringa[i] = '\0';
-   printf("%d", sizeof stringa / sizeof(char));
-   changeC(stringa);
-   change(stringa);
+   string[i] = '\0';
+   changeC(string);
+   change(string);
 }

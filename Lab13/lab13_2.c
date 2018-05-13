@@ -37,6 +37,8 @@ void friends(int a[SIZE][SIZE]) {
    }
 }
 
+//Need to add 4th exercise request
+
 int main(void) {
    srand(time(NULL));
 
