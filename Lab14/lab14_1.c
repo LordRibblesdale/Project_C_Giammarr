@@ -4,17 +4,17 @@
 
 //Need to be finished
 
-const Squadra {
-   char name[];
-   int score = 0;
-};
-
-typedef const Squadra Team;
-
 int main() {
    srand(time(NULL));
 
-   char name[10][] = {"Boston Uprising",
+   struct Squadra {
+      char *name;
+      int score;
+   };
+
+   typedef struct Squadra Team;
+
+   char name[10][20] = {"Boston Uprising",
                         "Houston Outlaws",
                         "London Spitfire",
                         "New Work Excelsior",
@@ -29,7 +29,7 @@ int main() {
 
 
    for (int i = 0; i < 10; i++) {
-      campionato[i] -> name[] = name[i];
+      campionato[i].name = name[i];
 
       for (int j = i; j < 10; j++) {
          results[i][j] = (rand() % 3) - 1;
@@ -38,10 +38,10 @@ int main() {
             case -1:
                break;
             case 0:
-               campionato[i] -> score += 1;
+               campionato[i].score += 1;
                break;
             case 1:
-               campionato[i] -> score += 2;
+               campionato[i].score += 2;
                break;
          }
 

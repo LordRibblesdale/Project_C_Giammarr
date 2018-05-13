@@ -244,6 +244,8 @@ void aggiungiInTestaABool(Nodo *l, int val) {
    }
 }
 
+//Need to be completed
+
 int main() {
    PNodo pstart = NULL;
    int scelta;
