@@ -25,7 +25,7 @@ void print(int a[ROW][COL]);
 void isRowNull(int a[]);
 void isColumnNull(int a[ROW][COL]);
 void maxIntRowSum(int a[ROW][COL]);
-void isRowEqualColumn(int a[]);
+void isRowEqualColumn(int a[ROW][COL]);
 void isRowAverageMax(int a[ROW][COL]);
 
 int main(void) {
@@ -118,6 +118,32 @@ void maxIntRowSum(int a[ROW][COL]) {
    }
 }
 
+void isRowEqualColumn(int a[ROW][COL]) {
+   int sumRow, sumCol;
+
+   for (int i = 0; i < ROW; i++) {
+      sumRow = 0;
+
+      for (int j = 0; j < COL; j++) {
+         sumRow += a[ROW][COL];
+      }
+
+      for (int j = 0; j < COL; j++) {
+         sumCol = 0;
+
+         for (int k = 0; k < ROW; k++) {
+            sumCol += a[k][j];
+         }
+
+         if (sumRow > sumCol) {
+            printf("%d, 0, >> 0, %d", i, j);
+         } else {
+            printf("0, %d, >> %d, 0", j, i);
+
+         }
+      }
+   }
+}
+
 //To be finished:
-//void isRowEqualColumn(int a[]);
 //void isRowAverageMax(int a[ROW][COL]);
