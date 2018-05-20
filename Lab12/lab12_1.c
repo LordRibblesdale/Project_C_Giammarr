@@ -4,9 +4,9 @@
 #include <time.h>
 #define SIZE 30
 
-void initialise(int[SIZE][SIZE]);
-void print(int[SIZE][SIZE]);
-void localMax(int[SIZE][SIZE]);
+//void initialise(int[SIZE][SIZE]);
+//void print(int[SIZE][SIZE]);
+//void localMax(int[SIZE][SIZE]);
 
 int main(void) {
    srand(time(NULL));
