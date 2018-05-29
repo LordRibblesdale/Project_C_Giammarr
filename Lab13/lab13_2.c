@@ -23,14 +23,14 @@ void print(int a[SIZE][SIZE]) {
 }
 
 void friends(int a[SIZE][SIZE]) {
-   bool b;
    for (int i = 0; i < SIZE; i++) {
-      for (int j = 0; j < SIZE; j++) {
-         b = (j+1 < SIZE) || (j+2 < SIZE) ;
-         if (b) {
-            b = ((a[i][j] == a[i][j+1]) && (a[i][j+1] == a[i][j+2])) && (a[i][j] != 0) ;
-            if (b) {
-               printf("%d %d; ", i, j);
+      for (int j = i+1; j < SIZE; j++) {
+         if (a[i][j] == 1) {
+            for (int k = j+1; k < SIZE; k++) {
+               if (a[i][k] == 1 && a[j][k] == 1 && a[k][j] == 1   ) {
+                  printf("%d %d %d\n", i, j, k);
+                  break;
+               }
             }
          }
       }

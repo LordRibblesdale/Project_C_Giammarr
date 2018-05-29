@@ -42,23 +42,23 @@ int posMax(int a[SIZE][SIZE], int xc, int yc, int *xm, int *ym) {
       if ((xc-1 >= 0) && (xc+1 < SIZE) && (yc-1 >= 0) && (yc+1 < SIZE)) {
          if (a[xc-1][yc] >= a[xc][yc] && a[xc-1][yc] > max) {
             tmpX = xc - 1;
+            tmpY = yc;
             max = a[tmpX][yc];
-            printf("tmpX%d\n", i);
          }
          if (a[xc+1][yc] >= a[xc][yc] && a[xc+1][yc] > max) {
             tmpX = xc + 1;
+            tmpY = yc;
             max = a[tmpX][yc];
-            printf("tmpX%d\n", i);
          }
          if (a[xc][yc-1] >= a[xc][yc] && a[xc][yc-1] > max) {
+            tmpX = xc;
             tmpY = yc - 1;
             max = a[xc][tmpY];
-            printf("tmpY%d\n", i);
          }
          if (a[xc][yc+1] >= a[xc][yc] && a[xc][yc] > max) {
+            tmpX = xc;
             tmpY = yc + 1;
             max = a[yc][tmpY];
-            printf("tmpY%d\n", i);
          }
 
          max = a[xc][yc];
@@ -75,7 +75,6 @@ int posMax(int a[SIZE][SIZE], int xc, int yc, int *xm, int *ym) {
          }
       }
 
-      a[xc][yc] = 0;
       print(a);
       printf("\n\n");
    }
