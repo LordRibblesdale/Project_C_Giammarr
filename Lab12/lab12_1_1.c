@@ -20,13 +20,16 @@ int main(void) {
 }
 
 void initialise(int a[SIZE][SIZE]) {
-   FILE *f;
-   f = fopen("matrix.txt", "w");
+   FILE *f = fopen("matrix.txt", "r");
 
-   for (int i = 0; i < SIZE; i++) {
-      for (int j = 0; j < SIZE; j++) {
-         a[i][j] = (rand() % 61) - 30;
-         fprintf(f, "%d\n", a[i][j]);
+   int i = 0, j = 0;
+
+   while (fscanf(f, "%d\n", &a[i][j]) != EOF) {
+      if (++j == SIZE) {
+         j = 0;
+         if (i != SIZE) {
+            i++;
+         }
       }
    }
 
